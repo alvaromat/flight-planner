@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
+import { MapsService } from '../services/maps/maps.service';
+import { BaseMap } from '../model/map';
 
 @Component({
   selector: 'app-new-plan',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewPlanComponent implements OnInit {
 
-  constructor() { }
+  maps: BaseMap[];
+
+  form = new FormGroup({
+    name: new FormControl(''),
+    map: new FormControl()
+  });
+
+  constructor(private mapsService: MapsService) { }
 
   ngOnInit() {
+    this.maps = this.mapsService.getAll();
+    this.form.controls.map.setValue(this.maps[0]);
   }
 
 }

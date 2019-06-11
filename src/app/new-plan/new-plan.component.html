@@ -1,3 +1,29 @@
-<p>
-  new-plan works!
-</p>
+<form [formGroup]="form">
+  <!-- Name -->
+  <mat-form-field class="name">
+    <input matInput placeholder="Plan name" formControlName="name">
+  </mat-form-field>
+
+  <!-- Map -->
+  <mat-card class="map">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon class="map-icon">map</mat-icon>
+      </div>
+      <mat-card-title>Map</mat-card-title>
+      <mat-card-subtitle>Where do you want to fly?</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="/assets/maps/{{form.controls['map'].value.URI}}.PNG" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <mat-radio-group aria-label="Select a map" formControlName="map">
+        <mat-radio-button [value]="map" *ngFor="let map of maps">{{map.name}}</mat-radio-button>
+      </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+
+  <!-- Create button -->
+  <div class="create">
+    <button mat-button>Create plan</button>
+  </div>
+
+</form>
