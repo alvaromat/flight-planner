@@ -56,4 +56,15 @@ export class PlansService {
 
     this.storage.set(PLANS_KEY, plans);
   }
+
+  remove(planId: number) {
+    const plans = this.getAll();
+    const planIndex = plans.findIndex(plan => plan.id === planId);
+
+    if (planIndex !== -1) {
+      plans.splice(planIndex, 1);
+    }
+
+    this.storage.set(PLANS_KEY, plans);
+  }
 }

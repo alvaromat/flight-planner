@@ -43,7 +43,7 @@ describe('PlansService', () => {
   });
 
   it('#update should update an existing plan', () => {
-    const newPlan = { name: 'new plan', creation: new Date(), mapId: 1, points: [] } as Plan;
+    const newPlan = { id: 99, name: 'new plan', creation: new Date(), mapId: 1, points: [] } as Plan;
     const fakeStorage = { plans: [newPlan] };
 
     storageService.get.and.callFake((key) => fakeStorage[key]);
@@ -56,5 +56,17 @@ describe('PlansService', () => {
     expect(fakeStorage.plans[0].name).toBe('updated');
   });
 
+  it('#remove should remove a plan from the storage', () => {
+    const aPlan = { name: 'new plan', creation: new Date(), mapId: 1, points: [] } as Plan;
+    const fakeStorage = { plans: [aPlan] };
+
+    storageService.get.and.callFake((key) => fakeStorage[key]);
+    storageService.set.and.callFake((key, value) => fakeStorage[key] = value);
+
+    const service: PlansService = TestBed.get(PlansService);
+    service.remove(aPlan.id);
+
+    expect(fakeStorage.plans.length).toBe(0);
+  });
 
 });
