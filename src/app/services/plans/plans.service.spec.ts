@@ -18,10 +18,13 @@ describe('PlansService', () => {
   });
 
   it('#constructor should init the storage if it is empty', () => {
+    const fakeStorage = {} as any;
     storageService.get.and.returnValue(null);
+    storageService.set.and.callFake((key, value) => fakeStorage[key] = value);
+
     const service: PlansService = TestBed.get(PlansService);
-    expect(storageService.set.calls.allArgs()[0]).toEqual(['plans', []], 'should set plans to []');
-    expect(storageService.set.calls.allArgs()[1]).toEqual(['plans_last', 0], 'should set plans last id to 0');
+    expect(fakeStorage.plans).toEqual([], 'should set plans to []');
+    expect(fakeStorage.plans_last).toEqual(0, 'should set plans last id to 0');
   });
 
   it('#create should add the new plan and should update the last id', () => {
@@ -38,5 +41,20 @@ describe('PlansService', () => {
     expect(fakeStorage.plans_last).toBe(100);
     expect(fakeStorage.plans[0].id).toBe(100);
   });
+
+  it('#update should update an existing plan', () => {
+    const newPlan = { name: 'new plan', creation: new Date(), mapId: 1, points: [] } as Plan;
+    const fakeStorage = { plans: [newPlan] };
+
+    storageService.get.and.callFake((key) => fakeStorage[key]);
+    storageService.set.and.callFake((key, value) => fakeStorage[key] = value);
+
+    const service: PlansService = TestBed.get(PlansService);
+    const updatedPlan = { ...newPlan, name: 'updated' };
+    service.update(updatedPlan);
+
+    expect(fakeStorage.plans[0].name).toBe('updated');
+  });
+
 
 });

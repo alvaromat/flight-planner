@@ -44,5 +44,16 @@ export class PlansService {
     return plan;
   }
 
+  update(updatedPlan: Plan): void {
+    const plans = this.getAll();
+    const updatedPlanIndex = plans.findIndex(plan => plan.id === updatedPlan.id);
 
+    if (updatedPlanIndex !== -1) {
+      plans[updatedPlanIndex] = updatedPlan;
+    } else {
+      plans.unshift(updatedPlan);
+    }
+
+    this.storage.set(PLANS_KEY, plans);
+  }
 }
