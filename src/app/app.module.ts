@@ -1,5 +1,3 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
@@ -7,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { PlansListComponent } from './plans-list/plans-list.component';
 import { NewPlanComponent } from './new-plan/new-plan.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -16,8 +15,7 @@ import { NewPlanComponent } from './new-plan/new-plan.component';
     NewPlanComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
+    SharedModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent }
     ])
