@@ -19,7 +19,8 @@ import { PlanViewComponent } from './components/plan-view/plan-view.component';
   imports: [
     SharedModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent }
+      { path: '', component: HomeComponent },
+      { path: 'new', component: NewPlanComponent }
     ])
   ],
   providers: [],

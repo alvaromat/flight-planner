@@ -1,10 +1,6 @@
 <div class="container">
-  <section class="left">
-    <h1>Existing flight plans</h1>
-    <app-plans-list></app-plans-list>
-  </section>
-  <section class="right">
-    <h1>Create a new flight plan</h1>
-    <app-new-plan></app-new-plan>
-  </section>
+  <div class="add-container">
+    <button mat-raised-button [routerLink]="['new']">Create a new plan</button>
+  </div>
+  <app-plans-list></app-plans-list>
 </div>
