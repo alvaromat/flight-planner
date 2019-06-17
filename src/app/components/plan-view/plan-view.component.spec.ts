@@ -7,7 +7,7 @@ import { SimpleChanges } from '@angular/core';
 import { MOCK_MAPS } from 'src/app/services/maps/maps.mock';
 import { Plan } from 'src/app/model/plan';
 
-fdescribe('PlanViewComponent', () => {
+describe('PlanViewComponent', () => {
   let component: PlanViewComponent;
   let fixture: ComponentFixture<PlanViewComponent>;
   let mapsService: jasmine.SpyObj<MapsService>;
