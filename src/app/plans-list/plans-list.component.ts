@@ -19,6 +19,7 @@ export class PlansListComponent implements OnInit {
 
   delete(plan: Plan) {
     this.plansService.remove(plan.id);
+    this.plans = this.plansService.getAll();
   }
 
 }

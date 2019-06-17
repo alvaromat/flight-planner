@@ -42,4 +42,12 @@ describe('PlansListComponent', () => {
     expect(plansService.remove).toHaveBeenCalledWith(fakePlan.id);
   });
 
+  it('#delete handler should reload the plans', () => {
+    plansService.getAll.and.returnValue([fakePlan]);
+    component.ngOnInit();
+    expect(plansService.getAll).toHaveBeenCalledTimes(1);
+    component.delete(fakePlan);
+    expect(plansService.getAll).toHaveBeenCalledTimes(2);
+  });
+
 });
