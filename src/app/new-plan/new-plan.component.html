@@ -1,29 +1,28 @@
-<form [formGroup]="form">
-  <!-- Name -->
-  <mat-form-field class="name">
-    <input matInput placeholder="Plan name" formControlName="name">
-  </mat-form-field>
-
-  <!-- Map -->
+<form [formGroup]="form" (submit)="addPlan()">
   <mat-card class="map">
     <mat-card-header>
       <div mat-card-avatar>
-        <mat-icon class="map-icon">map</mat-icon>
+        <mat-icon class="map-icon">add_circle</mat-icon>
       </div>
-      <mat-card-title>Map</mat-card-title>
+      <mat-card-title>Create a new plan</mat-card-title>
       <mat-card-subtitle>Where do you want to fly?</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="/assets/maps/{{form.controls['map'].value.URI}}.PNG" alt="Photo of a Shiba Inu">
     <mat-card-content>
+      <!-- Name -->
+      <mat-form-field class="name">
+        <input matInput placeholder="Plan name" formControlName="name">
+      </mat-form-field>
+      <!-- Choose map -->
       <mat-radio-group aria-label="Select a map" formControlName="map">
         <mat-radio-button [value]="map" *ngFor="let map of maps">{{map.name}}</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
+    <img mat-card-image src="/assets/maps/{{form.controls['map'].value.URI}}.PNG" alt="Photo of a Shiba Inu">
+    <mat-card-actions>
+      <!-- Create and cancel buttons -->
+      <button mat-button [disabled]="!form.valid">Create plan</button>
+      <button mat-button (click)="cancel()">Cancel</button>
+    </mat-card-actions>
   </mat-card>
-
-  <!-- Create button -->
-  <div class="create">
-    <button mat-button>Create plan</button>
-  </div>
 
 </form>
