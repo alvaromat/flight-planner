@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PlansService } from '../services/plans/plans.service';
+import { Plan } from '../model/plan';
 
 @Component({
   selector: 'app-plans-list',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlansListComponent implements OnInit {
 
-  constructor() { }
+  plans: Plan[];
+
+  constructor(private plansService: PlansService) { }
 
   ngOnInit() {
+    this.plans = this.plansService.getAll();
+  }
+
+  delete(plan: Plan) {
+    this.plansService.remove(plan.id);
   }
 
 }
