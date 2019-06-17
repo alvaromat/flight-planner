@@ -24,3 +24,16 @@ mat-radio-button {
     width: 100%;
   }
 }
+
+div.point-editor {
+  position: relative;
+
+  & > * {
+    width: 632px;
+    height: 400px;
+  }
+
+  svg {
+    position: absolute;
+  }
+}
