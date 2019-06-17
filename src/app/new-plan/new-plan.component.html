@@ -17,9 +17,10 @@
         <mat-radio-button [value]="map" *ngFor="let map of maps">{{map.name}}</mat-radio-button>
       </mat-radio-group>
     </mat-card-content>
-    <div class="point-editor" mat-card-image>
+    <span class="add-desc">Add points by clicking in the map.</span>
+    <div class="point-editor" mat-card-image (click)="addPoint($event.layerX, $event.layerY)">
       <svg>
-
+        <circle [attr.cx]="point.x" [attr.cy]="point.y" r="5" stroke="red" stroke-width="2" fill="#006064" *ngFor="let point of form.value.points"/>
       </svg>
       <img src="/assets/maps/{{form.controls['map'].value.URI}}.PNG" alt="map image">
     </div>

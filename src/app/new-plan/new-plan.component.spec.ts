@@ -56,7 +56,7 @@ describe('NewPlanComponent', () => {
   });
 
   it('#addPlan should make a call to the plans service and go to home', () => {
-    component.form.setValue({ map: fakeMap, name: 'name' });
+    component.form.patchValue({ map: fakeMap, name: 'name' });
     component.addPlan();
     expect(plansService.create).toHaveBeenCalled();
     const newPlan = plansService.create.calls.first().args[0];
@@ -71,6 +71,11 @@ describe('NewPlanComponent', () => {
     const router = TestBed.get(Router);
     component.cancel();
     expect(router.navigate).toHaveBeenCalledWith(['']);
+  });
+
+  it('#addPoint should update the form value', () => {
+    component.addPoint(50, 50);
+    expect(component.form.value.points).toEqual([{ x: 50, y: 50 }]);
   });
 
 

@@ -1,39 +1,44 @@
 mat-card {
   max-width: 600px;
   margin: 24px auto ;
-}
 
-.name {
-  width: 100%;
-  font-size: 1.5em;
-}
-
-.map-icon {
-  font-size: 39px;
-}
-
-mat-radio-button {
-  display: block;
-  margin: 4px 0;
-}
-
-.create {
-  margin-top: 8px;
-  button {
-    font-size: 18px;
+  .name {
     width: 100%;
-  }
-}
-
-div.point-editor {
-  position: relative;
-
-  & > * {
-    width: 632px;
-    height: 400px;
+    font-size: 1.5em;
   }
 
-  svg {
-    position: absolute;
+  .map-icon {
+    font-size: 39px;
   }
+
+  mat-radio-button {
+    display: block;
+    margin: 4px 0;
+  }
+
+  .create {
+    margin-top: 8px;
+    button {
+      font-size: 18px;
+      width: 100%;
+    }
+  }
+
+  span.add-desc {
+    color: #888;
+  }
+
+  div.point-editor {
+    position: relative;
+
+    & > * {
+      width: 632px;
+      height: 400px;
+    }
+
+    svg {
+      position: absolute;
+    }
+  }
+
 }
