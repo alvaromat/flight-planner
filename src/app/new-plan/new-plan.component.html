@@ -20,7 +20,10 @@
     <span class="add-desc">Add points by clicking in the map.</span>
     <div class="point-editor" mat-card-image (click)="addPoint($event.layerX, $event.layerY)">
       <svg>
-        <circle [attr.cx]="point.x" [attr.cy]="point.y" r="5" stroke="red" stroke-width="2" fill="#006064" *ngFor="let point of form.value.points"/>
+        <g *ngFor="let point of form.value.points; index as i; last as isLast;">
+          <line [attr.x1]="point.x" [attr.y1]="point.y" [attr.x2]="form.value.points[i+1].x" [attr.y2]="form.value.points[i+1].y" style="stroke:red;stroke-width:2" *ngIf="!isLast"/>
+          <circle [attr.cx]="point.x" [attr.cy]="point.y" r="5" stroke="red" stroke-width="2" fill="#006064"/>
+        </g>
       </svg>
       <img src="/assets/maps/{{form.controls['map'].value.URI}}.PNG" alt="map image">
     </div>
