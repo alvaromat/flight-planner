@@ -1,10 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PlansListComponent } from './plans-list.component';
-import { PlansService } from '../services/plans/plans.service';
-import { Plan } from '../model/plan';
-import { PlanViewComponent } from '../components/plan-view/plan-view.component';
-import { SharedModule } from '../shared/shared.module';
+import { PlansService } from '../../services/plans/plans.service';
+import { Plan } from '../../model/plan';
+import { PlanViewComponent } from '../plan-view/plan-view.component';
+import { SharedModule } from '../../shared/shared.module';
 
 describe('PlansListComponent', () => {
   let component: PlansListComponent;

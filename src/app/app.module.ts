@@ -2,9 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { PlansListComponent } from './plans-list/plans-list.component';
-import { NewPlanComponent } from './new-plan/new-plan.component';
+import { HomeComponent } from './components/home/home.component';
+import { PlansListComponent } from './components/plans-list/plans-list.component';
+import { NewPlanComponent } from './components/new-plan/new-plan.component';
 import { SharedModule } from './shared/shared.module';
 import { PlanViewComponent } from './components/plan-view/plan-view.component';
 

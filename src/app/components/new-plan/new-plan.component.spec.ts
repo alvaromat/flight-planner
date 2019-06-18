@@ -1,11 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NewPlanComponent } from './new-plan.component';
-import { MapsService } from '../services/maps/maps.service';
-import { MOCK_MAPS } from '../services/maps/maps.mock';
-import { SharedModule } from '../shared/shared.module';
+import { MapsService } from '../../services/maps/maps.service';
+import { MOCK_MAPS } from '../../services/maps/maps.mock';
+import { SharedModule } from '../../shared/shared.module';
 import { RouterTestingModule } from '@angular/router/testing';
-import { PlansService } from '../services/plans/plans.service';
+import { PlansService } from '../../services/plans/plans.service';
 import { Router } from '@angular/router';
 
 describe('NewPlanComponent', () => {

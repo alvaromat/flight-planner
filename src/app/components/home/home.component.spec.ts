@@ -3,8 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { HomeComponent } from './home.component';
 import { PlansListComponent } from '../plans-list/plans-list.component';
-import { SharedModule } from '../shared/shared.module';
-import { PlanViewComponent } from '../components/plan-view/plan-view.component';
+import { SharedModule } from '../../shared/shared.module';
+import { PlanViewComponent } from '../plan-view/plan-view.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
