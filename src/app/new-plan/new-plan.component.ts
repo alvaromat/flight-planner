@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MapsService } from '../services/maps/maps.service';
 import { BaseMap } from '../model/map';
 import { PlansService } from '../services/plans/plans.service';
 import { Plan } from '../model/plan';
 import { Router } from '@angular/router';
-import { Point } from '../model/point';
 
 @Component({
   selector: 'app-new-plan',
