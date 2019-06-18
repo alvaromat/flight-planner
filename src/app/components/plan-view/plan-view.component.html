@@ -6,5 +6,13 @@
     </mat-card-title>
     <mat-card-subtitle>{{map?.name}}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image src="/assets/maps/{{map?.URI}}.PNG" alt="Preview of the map">
+  <div class="point-viewer" mat-card-image>
+      <svg>
+        <g *ngFor="let point of plan?.points; index as i; last as isLast;">
+          <line [attr.x1]="point.x" [attr.y1]="point.y" [attr.x2]="plan?.points[i+1].x" [attr.y2]="plan?.points[i+1].y" style="stroke:red;stroke-width:2" *ngIf="!isLast"/>
+          <circle [attr.cx]="point.x" [attr.cy]="point.y" r="5" stroke="red" stroke-width="2" fill="#006064"/>
+        </g>
+      </svg>
+      <img src="/assets/maps/{{map?.URI}}.PNG" alt="Preview of the map">
+    </div>
 </mat-card>

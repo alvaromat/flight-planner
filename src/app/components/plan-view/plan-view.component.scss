@@ -7,3 +7,16 @@
   color: white;
   float: right;
 }
+
+div.point-viewer {
+    position: relative;
+
+    & > * {
+      width: 632px;
+      height: 400px;
+    }
+
+    svg {
+      position: absolute;
+    }
+  }
